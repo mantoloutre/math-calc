@@ -47,7 +47,7 @@ public class pageTrouveVecteur2Pts extends JPanel {
                 // on set le texte du lblResultat au résultat //
                 lblResultat.setText("( " + res.getX() + " ; " + res.getY() + " )");
             } catch (NumberFormatException ex) {
-                // au cas ou l'utilisateur a entré des données invalide //
+                // au cas ou l'utilisateur a entré des données invalides //
                 lblResultat.setText("Erreur !");
             }
         });
