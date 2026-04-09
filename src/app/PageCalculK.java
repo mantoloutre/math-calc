@@ -4,7 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * page pour faire le calcul de K avec 2 rectangles
+ * page pour faire le calcul de K avec 2 rectangles ou pour trouver les mesure
+ * manquante avec le k et 1 rectangle
  * 
  * @author mantoloutre
  */
@@ -15,7 +16,7 @@ public class PageCalculK extends JPanel {
     /**
      * constructeur de page calcul k
      * 
-     * @param cl        le gestionnaire des pages qui permet l'Affichage de une
+     * @param cl        le gestionnaire des pages qui permet l'affichage de une
      *                  seule page a la fois
      * @param conteneur le conteneur principal qui contient toute les pages
      */
@@ -23,9 +24,13 @@ public class PageCalculK extends JPanel {
         this.setLayout(new GridLayout(0, 2, 5, 5));
         // initialisation des champs d'écriture et label
         this.cL1 = ajouterChamp("Largeur Rect 1 :");
+        this.cL1.setToolTipText("largeur du rectangle original");
         this.cH1 = ajouterChamp("Longueur Rect 1 :");
+        this.cH1.setToolTipText("Longueur du rectangle original");
         this.cL2 = ajouterChamp("Largeur Rect 2 :");
+        this.setToolTipText("Largeur du rectangle final");
         this.cH2 = ajouterChamp("Longueur Rect 2 :");
+        this.setToolTipText("Longueur du rectangle final");
         this.cK = ajouterChamp("Mesure K");
         this.lblResultat = new JLabel("Résultat : ---");
         JButton btnCalculer = new JButton("Calculer K");
@@ -43,7 +48,7 @@ public class PageCalculK extends JPanel {
                 double h2 = cH2.getText().isEmpty() ? 0 : Double.parseDouble(cH2.getText());
                 double l2 = cL2.getText().isEmpty() ? 0 : Double.parseDouble(cL2.getText());
                 double k = cK.getText().isEmpty() ? 0 : Double.parseDouble(cK.getText());
-                // On demande à la classe Rectangle de faire les calculs
+                // on utilise la classe Rectangle pour faire les calculs
                 double[] resultats = Rectangle.calculerTout(h1, l1, h2, l2, k);
                 // mettre les resultat dans les champs approprié
                 cH1.setText(String.format("%.2f", resultats[0]));
