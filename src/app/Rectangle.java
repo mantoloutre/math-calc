@@ -40,31 +40,29 @@ public class Rectangle {
     }
 
     /**
-     * méthode pour calculer la mesure de différence ( le K ).
-     * les deux rectangles doivent obligatoirement être semblable ( pareil, juste
-     * différente taille )
+     * calcule la valeur manquante selon ce qui est fourni.
      * 
-     * @param rect1 rectangle 1
-     * @param rect2 rectangle 2
-     * @return retourne la valeur K si le K des largeurs et longueurs est identique,
-     *         sinon ca veut dire que les rectangles ne sont pas semblable et ca
-     *         retourne -1 dans ce cas
+     * @param h1 Hauteur 1 (0 si inconnu)
+     * @param l1 Largeur 1 (0 si inconnu)
+     * @param h2 Hauteur 2 (0 si inconnu)
+     * @param l2 Largeur 2 (0 si inconnu)
+     * @param k  Rapport (0 si inconnu)
+     * @return Un tableau de double contenant [h1, l1, h2, l2, k] complété
      */
-    public static double kRectangle(Rectangle rect1, Rectangle rect2) {
-        double resultK, resultK1, resultK2;
-        if (calculAir(rect1) >= calculAir(rect2)) {
-            resultK1 = rect1.getLargeur() / rect2.getLargeur();
-            resultK2 = rect1.getLongueur() / rect2.getLargeur();
-        } else {
-            resultK1 = rect2.getLargeur() / rect1.getLargeur();
-            resultK2 = rect2.getLongueur() / rect1.getLongueur();
+    public static double[] calculerTout(double h1, double l1, double h2, double l2, double k) {
+        if (k == 0 && h1 != 0 && h2 != 0) {
+            // chercher le k
+            k = h2 / h1;
+        } else if (h2 == 0 && h1 != 0 && k != 0) {
+            // chercher le rectangle 2
+            h2 = h1 * k;
+            l2 = l1 * k;
+        } else if (h1 == 0 && h2 != 0 && k != 0) {
+            // chercher le rectangle 1
+            h1 = h2 / k;
+            l1 = l2 / k;
         }
-        if (resultK1 == resultK2) {
-            resultK = resultK1;
-        } else {
-            resultK = -1;
-        }
-        return resultK;
+        return new double[] { h1, l1, h2, l2, k };
     }
 
     /**

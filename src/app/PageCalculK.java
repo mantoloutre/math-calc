@@ -9,7 +9,7 @@ import java.awt.*;
  * @author mantoloutre
  */
 public class PageCalculK extends JPanel {
-    private JTextField cL1, cH1, cL2, cH2;
+    private JTextField cL1, cH1, cL2, cH2, cK;
     private JLabel lblResultat;
 
     /**
@@ -21,33 +21,39 @@ public class PageCalculK extends JPanel {
      */
     public PageCalculK(CardLayout cl, JPanel conteneur) {
         this.setLayout(new GridLayout(0, 2, 5, 5));
-        // champs largeur 1 //
+        // initialisation des champs d'écriture et label
         this.cL1 = ajouterChamp("Largeur Rect 1 :");
-        // champ hauteur 1 //
         this.cH1 = ajouterChamp("Longueur Rect 1 :");
-        // champ Longueur 2 //
         this.cL2 = ajouterChamp("Largeur Rect 2 :");
-        // champ hauteur 2 //
         this.cH2 = ajouterChamp("Longueur Rect 2 :");
+        this.cK = ajouterChamp("Mesure K");
         this.lblResultat = new JLabel("Résultat : ---");
-
         JButton btnCalculer = new JButton("Calculer K");
         JButton btnRetour = new JButton("<- Retour");
 
         this.add(btnCalculer);
         this.add(lblResultat);
         this.add(btnRetour);
-
+        // bouton d'actions
         btnCalculer.addActionListener(e -> {
             try {
-                Rectangle r1 = new Rectangle(Double.parseDouble(cH1.getText()), Double.parseDouble(cL1.getText()));
-                Rectangle r2 = new Rectangle(Double.parseDouble(cH2.getText()), Double.parseDouble(cL2.getText()));
-                double res = Rectangle.kRectangle(r1, r2);
-                // (condition ? valeur si vraie : valeur si faux) ( mieux que des if else pour
-                // des petits calcul )
-                lblResultat.setText(res == -1 ? "Non semblables" : String.format("K = %.4f", res));
+                // lire les champ de texte
+                double h1 = cH1.getText().isEmpty() ? 0 : Double.parseDouble(cH1.getText());
+                double l1 = cL1.getText().isEmpty() ? 0 : Double.parseDouble(cL1.getText());
+                double h2 = cH2.getText().isEmpty() ? 0 : Double.parseDouble(cH2.getText());
+                double l2 = cL2.getText().isEmpty() ? 0 : Double.parseDouble(cL2.getText());
+                double k = cK.getText().isEmpty() ? 0 : Double.parseDouble(cK.getText());
+                // On demande à la classe Rectangle de faire les calculs
+                double[] resultats = Rectangle.calculerTout(h1, l1, h2, l2, k);
+                // mettre les resultat dans les champs approprié
+                cH1.setText(String.format("%.2f", resultats[0]));
+                cL1.setText(String.format("%.2f", resultats[1]));
+                cH2.setText(String.format("%.2f", resultats[2]));
+                cL2.setText(String.format("%.2f", resultats[3]));
+                cK.setText(String.format("%.4f", resultats[4]));
+                lblResultat.setText("Calcul fait");
             } catch (NumberFormatException ex) {
-                lblResultat.setText("Erreur !");
+                lblResultat.setText("Erreur : veuillez entrez des nombres, merci");
             }
         });
 

@@ -22,13 +22,10 @@ public class pageCalculKTriangle extends JPanel {
      */
     public pageCalculKTriangle(CardLayout cl, JPanel conteneur) {
         this.setLayout(new GridLayout(0, 2, 5, 5));
-        // champ largeur 1 //
+        // initialisation des champs d'écriture pour les deux triangles
         this.cL1 = ajouterChamp("Largeur ( base Triangle 1 :");
-        // champ hauteur 1 //
         this.cH1 = ajouterChamp("Hauteur premier triangle :");
-        // champ largeur 2 //
         this.cL2 = ajouterChamp("Largeur ( base Triangle 2 :");
-        // champ hauteur 2 //
         this.cH2 = ajouterChamp("Hauteur deuxième triangle :");
         this.lblResultat = new JLabel("Résultat : ---");
         JButton btnCalculer = new JButton("Calculer K");
