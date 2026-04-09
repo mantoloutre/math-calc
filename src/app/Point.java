@@ -15,6 +15,20 @@ public class Point {
     }
 
     /**
+     * méthode pour calculer la rotation d'un point sur un angle que l'on donne (
+     * méthhode utile pour tout les angle)
+     * 
+     * @param angleDegree l'angle sur lequel on veut faire la rotation
+     * @return retourne un objet point qui contient les nouvelles coordonné du point
+     */
+    public Point calculRotation(double angleDegree) {
+        double angleRad = Math.toRadians(angleDegree);
+        double nx = this.x * Math.cos(angleRad) - this.y * Math.cos(angleRad);
+        double ny = this.x * Math.sin(angleRad) + this.y * Math.sin(angleRad);
+        return new Point(nx, ny);
+    }
+
+    /**
      * Crée un nouveau point à partir d'un point de départ et d'un déplacement.
      * * @param depart Le point initial
      * 
