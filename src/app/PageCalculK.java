@@ -10,8 +10,8 @@ import java.awt.*;
  * @author mantoloutre
  */
 public class PageCalculK extends JPanel {
-    private JTextField cL1, cH1, cL2, cH2, cK;
-    private JLabel lblResultat;
+    private final JTextField cL1, cH1, cL2, cH2, cK;
+    private final JLabel lblResultat;
 
     /**
      * constructeur de page calcul k
@@ -28,9 +28,9 @@ public class PageCalculK extends JPanel {
         this.cH1 = ajouterChamp("Longueur Rect 1 :");
         this.cH1.setToolTipText("Longueur du rectangle original");
         this.cL2 = ajouterChamp("Largeur Rect 2 :");
-        this.setToolTipText("Largeur du rectangle final");
+        this.cL2.setToolTipText("Largeur du rectangle final");
         this.cH2 = ajouterChamp("Longueur Rect 2 :");
-        this.setToolTipText("Longueur du rectangle final");
+        this.cH2.setToolTipText("Longueur du rectangle final");
         this.cK = ajouterChamp("Mesure K");
         this.lblResultat = new JLabel("Résultat : ---");
         JButton btnCalculer = new JButton("Calculer K");
@@ -40,35 +40,69 @@ public class PageCalculK extends JPanel {
         this.add(lblResultat);
         this.add(btnRetour);
         // bouton d'actions
-        btnCalculer.addActionListener(e -> {
-            try {
-                // lire les champ de texte
-                double h1 = cH1.getText().isEmpty() ? 0 : Double.parseDouble(cH1.getText());
-                double l1 = cL1.getText().isEmpty() ? 0 : Double.parseDouble(cL1.getText());
-                double h2 = cH2.getText().isEmpty() ? 0 : Double.parseDouble(cH2.getText());
-                double l2 = cL2.getText().isEmpty() ? 0 : Double.parseDouble(cL2.getText());
-                double k = cK.getText().isEmpty() ? 0 : Double.parseDouble(cK.getText());
-                // on utilise la classe Rectangle pour faire les calculs
-                double[] resultats = Rectangle.calculerTout(h1, l1, h2, l2, k);
-                // mettre les resultat dans les champs approprié
-                cH1.setText(String.format("%.2f", resultats[0]));
-                cL1.setText(String.format("%.2f", resultats[1]));
-                cH2.setText(String.format("%.2f", resultats[2]));
-                cL2.setText(String.format("%.2f", resultats[3]));
-                cK.setText(String.format("%.4f", resultats[4]));
-                lblResultat.setText("Calcul fait");
-            } catch (NumberFormatException ex) {
-                lblResultat.setText("Erreur : veuillez entrez des nombres, merci");
-            }
-        });
+        btnCalculer.addActionListener(e -> appliquerCalcul());
 
         btnRetour.addActionListener(e -> cl.show(conteneur, "menu"));
     }
 
+    /**
+     * méthode pour rendre le code moins gros.
+     * cette méthode va simplifier l'ajout de JLabel et de JTextfield
+     * 
+     * @param texte le texte que on veut mettre dans le JLabel
+     * @return retourne le JTextField
+     */
     private JTextField ajouterChamp(String texte) {
         this.add(new JLabel(texte));
         JTextField champ = new JTextField();
         this.add(champ);
         return champ;
+    }
+
+    /**
+     * Logique principale pour récupérer les données, appeler le calcul
+     * et mettre à jour l'interface.
+     */
+    private void appliquerCalcul() {
+        double h1 = videOuPas(cH1);
+        double l1 = videOuPas(cL1);
+        double h2 = videOuPas(cH2);
+        double l2 = videOuPas(cL2);
+        double k = videOuPas(cK);
+
+        if (h1 == -1 || l1 == -1 || h2 == -1 || l2 == -1 || k == -1) {
+            return;
+        }
+        double[] resultats = Rectangle.calculerTout(h1, l1, h2, l2, k);
+        this.cH1.setText(String.format("%.2f", resultats[0]));
+        this.cL1.setText(String.format("%.2f", resultats[1]));
+        this.cH2.setText(String.format("%.2f", resultats[2]));
+        this.cL2.setText(String.format("%.2f", resultats[3]));
+        this.cK.setText(String.format("%.4f", resultats[4]));
+        lblResultat.setText("Calcul fait");
+    }
+
+    /**
+     * méthode qui vérifie si le champ est vide ou non
+     * 
+     * @param champ champ de texte que l'on veut vérifier
+     * @return retourne la valeur
+     *         <p>
+     *         si le champ comporte une erreur, retourne -1
+     *         </p>
+     */
+    private double videOuPas(JTextField champ) {
+        double valeur;
+        try {
+            if (champ.getText().trim().isEmpty()) {
+                valeur = 0;
+            } else {
+                valeur = Double.parseDouble(champ.getText().replace(',', '.'));
+            }
+        } catch (NumberFormatException ex) {
+            lblResultat.setText("Erreur : Nombres seulement !");
+            valeur = -1;
+        }
+        return valeur;
     }
 }
