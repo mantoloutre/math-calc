@@ -40,12 +40,14 @@ public class monApp {
         conteneur.add(new PageCalculK(cl, conteneur), "k");
         conteneur.add(new pageCalculKTriangle(cl, conteneur), "Kt");
         conteneur.add(new pageTrouveVecteur2Pts(cl, conteneur), "vecteur2Pts");
+        conteneur.add(new PageCalculRotationAngle(cl, conteneur), "calcRotation");
 
         // navigation du menu
         btnVecteur.addActionListener(e -> cl.show(conteneur, "norme"));
         btnK.addActionListener(e -> cl.show(conteneur, "k"));
         btnKT.addActionListener(e -> cl.show(conteneur, "Kt"));
         btnTV.addActionListener(e -> cl.show(conteneur, "vecteur2Pts"));
+        btnRt.addActionListener(e -> cl.show(conteneur, "calcRotation"));
 
         fenetre.add(conteneur);
         fenetre.setVisible(true);
