@@ -27,10 +27,12 @@ public class monApp {
         JButton btnK = new JButton("Calcul de K");
         JButton btnKT = new JButton("Calcul de K triangle");
         JButton btnTV = new JButton("trouver vecteur 2 points");
+        JButton btnRt = new JButton("calculer rotation point angle");
         pageMenu.add(btnVecteur);
         pageMenu.add(btnK);
         pageMenu.add(btnKT);
         pageMenu.add(btnTV);
+        pageMenu.add(btnRt);
 
         // ajoute des pages dans le conteneur
         conteneur.add(pageMenu, "menu");
