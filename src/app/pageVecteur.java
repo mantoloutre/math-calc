@@ -13,6 +13,13 @@ public class pageVecteur extends JPanel {
     private JTextField champY;
     private JLabel lblResultat;
 
+    /**
+     * constructeur de la page pour calculer le vecteur
+     * 
+     * @param cl        le gestionnaire des pages qui permet l'Affichage de une
+     *                  seule page a la fois
+     * @param conteneur le conteneur principal qui contient toute les pages
+     */
     public pageVecteur(CardLayout cl, JPanel conteneur) {
         this.setLayout(new GridLayout(0, 2, 5, 5));
 

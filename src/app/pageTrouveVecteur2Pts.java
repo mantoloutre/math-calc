@@ -12,10 +12,13 @@ import java.awt.*;
 public class pageTrouveVecteur2Pts extends JPanel {
     private JTextField cX1, cY1, cX2, cY2;
     private JLabel lblResultat;
+
     /**
      * constructeur de la page qui sert a trouver le vecteur a partie de deux points
-     * @param cl le card la
-     * @param conteneur
+     * 
+     * @param cl        le gestionnaire des pages qui permet l'Affichage de une
+     *                  seule page a la fois
+     * @param conteneur le conteneur principal qui contient toute les pages
      */
     public pageTrouveVecteur2Pts(CardLayout cl, JPanel conteneur) {
         // ajouter le layout voulu //

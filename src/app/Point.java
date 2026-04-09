@@ -23,8 +23,8 @@ public class Point {
      */
     public Point calculRotation(double angleDegree) {
         double angleRad = Math.toRadians(angleDegree);
-        double nx = this.x * Math.cos(angleRad) - this.y * Math.cos(angleRad);
-        double ny = this.x * Math.sin(angleRad) + this.y * Math.sin(angleRad);
+        double nx = this.x * Math.cos(angleRad) - this.y * Math.sin(angleRad);
+        double ny = this.x * Math.sin(angleRad) + this.y * Math.cos(angleRad);
         return new Point(nx, ny);
     }
 
