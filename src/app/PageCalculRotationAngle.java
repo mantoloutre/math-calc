@@ -1,7 +1,7 @@
 package app;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 /**
  * objet qui représente la page pour faire le calcul de rotation d'un point avec
@@ -11,7 +11,7 @@ import java.awt.*;
  * @author mantoloutre
  */
 public class PageCalculRotationAngle extends JPanel {
-    private JTextField x, y, rotation;
+    private JTextField x, y, pX, pY, rotation;
     private JLabel lblResultat;
 
     /**
@@ -25,6 +25,8 @@ public class PageCalculRotationAngle extends JPanel {
         this.setLayout(new GridLayout(0, 2, 5, 5));
         this.x = ajouterChamp("le X du point :");
         this.y = ajouterChamp("le Y du point :");
+        this.pX = ajouterChamp("le X du point pivot :");
+        this.pY = ajouterChamp("le Y du point pivot");
         this.rotation = ajouterChamp("l'angle de rotation :");
         this.lblResultat = new JLabel("Résultat : ---");
         JButton btnCalculer = new JButton("Calculer K");
@@ -35,7 +37,8 @@ public class PageCalculRotationAngle extends JPanel {
         btnCalculer.addActionListener(e -> {
             try {
                 Point p1 = new Point(Double.parseDouble(x.getText()), Double.parseDouble(y.getText()));
-                Point res = p1.calculRotation(Double.parseDouble(rotation.getText()));
+                Point res = p1.calculRotation(Double.parseDouble(rotation.getText()), Double.parseDouble(pX.getText()),
+                        Double.parseDouble(pY.getText()));
                 lblResultat.setText(String.format("nouveau : (%.2f ; %.2f)", res.getX(), res.getY()));
             } catch (NumberFormatException ex) {
                 lblResultat.setText("Erreur !");

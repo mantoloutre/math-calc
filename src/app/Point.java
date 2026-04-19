@@ -9,23 +9,33 @@ public class Point {
     private double x;
     private double y;
 
+    /**
+     * constructeur par défaut pour faire un objet points
+     * 
+     * @param x le x du point
+     * @param y le y du point
+     */
     public Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
     /**
-     * méthode pour calculer la rotation d'un point sur un angle que l'on donne (
-     * méthhode utile pour tout les angle)
+     * méthode pour calculer la rotation d'un point avec un angle et son pivot
      * 
-     * @param angleDegree l'angle sur lequel on veut faire la rotation
-     * @return retourne un objet point qui contient les nouvelles coordonné du point
+     * @param angleDegree l'angle du point par rapport au point pivot
+     * @param xPivot      le x du point pivot
+     * @param yPivot      le y du point pivot
+     * @return retourne un nouveau point qui représente le point apres avoir
+     *         effectuer la rotation
      */
-    public Point calculRotation(double angleDegree) {
+    public Point calculRotation(double angleDegree, double xPivot, double yPivot) {
         double angleRad = Math.toRadians(angleDegree);
-        double nx = this.x * Math.cos(angleRad) - this.y * Math.sin(angleRad);
-        double ny = this.x * Math.sin(angleRad) + this.y * Math.cos(angleRad);
-        return new Point(nx, ny);
+        double tempX = this.x - xPivot;
+        double tempY = this.y - yPivot;
+        double nouveauX = (tempX * Math.cos(angleRad)) - (tempY * Math.sin(angleRad));
+        double nouveauY = (tempX * Math.sin(angleRad)) + (tempY * Math.cos(angleRad));
+        return new Point(nouveauX, nouveauY);
     }
 
     /**
