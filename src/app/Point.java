@@ -1,7 +1,7 @@
 package app;
 
 /**
- * cette classe représente le point que l'on est sur la carte
+ * cette classe représente un objet point
  * 
  * @author mantoloutre
  */
@@ -40,8 +40,8 @@ public class Point {
 
     /**
      * Crée un nouveau point à partir d'un point de départ et d'un déplacement.
-     * * @param depart Le point initial
      * 
+     * @param depart      Le point initial
      * @param deplacement Le vecteur de déplacement
      */
     public Point(Point depart, Vecteur deplacement) {
@@ -57,7 +57,7 @@ public class Point {
      * @param norme
      * @param angleDeg
      */
-    public Point(Point depart, Double norme, Double angleDeg) {
+    public Point(Point depart, double norme, double angleDeg) {
         double angleRad = Math.toRadians(angleDeg);
         this.x = depart.getX() + (norme * Math.cos(angleRad));
         this.y = depart.getY() + (norme * Math.sin(angleRad));

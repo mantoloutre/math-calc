@@ -71,6 +71,31 @@ public class Vecteur {
         return calculerNorme(this.x, this.y);
     }
 
+    /**
+     * méthode pour calculer le produit scalaire avec 2 vecteur
+     * 
+     * @param v1 le premier vecteur
+     * @param v2 le deuxième vecteur
+     * @return retourne le produit scalaire
+     */
+    public static double calculProduitScalaire(Vecteur v1, Vecteur v2) {
+        return (v1.getX() * v1.getY()) * (v2.getX() * v2.getY());
+    }
+
+    /**
+     * méthode pour calculer le produit scalaire avec les deux normes et l'angle
+     * entre les normes.
+     * 
+     * @param norme1      la longueur de la première norme
+     * @param norme2      la longueur de la deuxième norme
+     * @param angleDegree l'angle en degree
+     * @return retour le produit scalaire
+     */
+    public static double calculProduitScalaireAngle(double norme1, double norme2, double angleDegree) {
+        double angleRad = Math.toRadians(angleDegree);
+        return (norme1 * norme2) * Math.cos(angleRad);
+    }
+
     public double getX() {
         return x;
     }
