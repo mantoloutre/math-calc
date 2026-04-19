@@ -30,7 +30,7 @@ public class PageTrouveVecteur2Pts extends PageDeBase {
         // ajouter le JLabel qui va servir à afficher le résultat //
         this.lblResultat = new JLabel("Résultat : ---");
         // ajouter le bouton qui va servir a faire le calcul //
-        JButton btnCalculer = new JButton("Calculer norme");
+        JButton btnCalculer = new JButton("Calculer Vecteur");
         // tout ajouter au conteneur //
         this.add(btnCalculer);
         this.add(lblResultat);
@@ -45,7 +45,7 @@ public class PageTrouveVecteur2Pts extends PageDeBase {
                 // on appelle le constructeur pour avoir le vecteur ( le déplacement ) //
                 Vecteur res = new Vecteur(pt1, pt2);
                 // on set le texte du lblResultat au résultat //
-                lblResultat.setText("( " + res.getX() + " ; " + res.getY() + " )");
+                lblResultat.setText("< " + res.getX() + " ; " + res.getY() + " >");
             } catch (NumberFormatException ex) {
                 // au cas ou l'utilisateur a entré des données invalides //
                 lblResultat.setText("Erreur !");
