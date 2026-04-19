@@ -49,6 +49,20 @@ public class Point {
         this.y = depart.getY() + deplacement.getY();
     }
 
+    /**
+     * créer un nouveau point a partir d'un point de départ, de la longueur de la
+     * norme et de l'angle de la norme par rapport au point que l'on recherche
+     * 
+     * @param depart
+     * @param norme
+     * @param angleDeg
+     */
+    public Point(Point depart, Double norme, Double angleDeg) {
+        double angleRad = Math.toRadians(angleDeg);
+        this.x = depart.getX() + (norme * Math.cos(angleRad));
+        this.y = depart.getY() + (norme * Math.sin(angleRad));
+    }
+
     public double getX() {
         return this.x;
     }

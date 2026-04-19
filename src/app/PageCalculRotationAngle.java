@@ -29,7 +29,7 @@ public class PageCalculRotationAngle extends PageDeBase {
         this.pY = ajouterChamp("le Y du point pivot");
         this.rotation = ajouterChamp("l'angle de rotation :");
         this.lblResultat = new JLabel("Résultat : ---");
-        JButton btnCalculer = new JButton("Calculer K");
+        JButton btnCalculer = new JButton("Calculer Rotation");
         this.add(btnCalculer);
         this.add(lblResultat);
         ajouterBoutonRetour();

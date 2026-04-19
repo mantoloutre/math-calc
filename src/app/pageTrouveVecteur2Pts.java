@@ -43,13 +43,13 @@ public class PageTrouveVecteur2Pts extends PageDeBase {
                 Point pt1 = new Point(Double.parseDouble(cX1.getText()), Double.parseDouble(cY1.getText()));
                 Point pt2 = new Point(Double.parseDouble(cX2.getText()), Double.parseDouble(cY2.getText()));
                 // on appelle le constructeur pour avoir le vecteur ( le déplacement ) //
-                Vecteur res = Vecteur.creerDepuisPoints(pt1, pt2);
+                Vecteur res = new Vecteur(pt1, pt2);
                 // on set le texte du lblResultat au résultat //
                 lblResultat.setText("( " + res.getX() + " ; " + res.getY() + " )");
             } catch (NumberFormatException ex) {
                 // au cas ou l'utilisateur a entré des données invalides //
                 lblResultat.setText("Erreur !");
             }
-        }); 
+        });
     }
 }

@@ -1,8 +1,12 @@
 package app;
 
 /**
+ * <p>
  * Classe qui représente un vecteur mathématique en 2D.
+ * </p>
+ * <p>
  * Elle permet de stocker les coordonnées et de calculer la norme.
+ * </p>
  * * @author mantoloutre
  */
 public class Vecteur {
@@ -29,24 +33,6 @@ public class Vecteur {
     public Vecteur(Point p1, Point p2) {
         this.x = p2.getX() - p1.getX();
         this.y = p2.getY() - p1.getY();
-    }
-
-    /**
-     * méthode pour trouver le vecteur ( le déplacement ) a partie de 2 points. ps:
-     * si on veut trouver la norme, on a juste a prendre le vecteur et utiliser la
-     * page pour calculer la norme.
-     * 
-     * @param pt1 premier objet point
-     * @param pt2 deuxième objet point
-     * @return retourne un objet vecteur
-     */
-    public static Vecteur creerDepuisPoints(Point pt1, Point pt2) {
-        // On calcule le déplacement (le "delta")
-        double dx = pt2.getX() - pt1.getX();
-        double dy = pt2.getY() - pt1.getY();
-
-        // On retourne un nouveau vecteur avec ces valeurs
-        return new Vecteur(dx, dy);
     }
 
     /**
