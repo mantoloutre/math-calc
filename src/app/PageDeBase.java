@@ -55,4 +55,15 @@ public abstract class PageDeBase extends JPanel {
         this.add(champ);
         return champ;
     }
+
+    /**
+     * méthode pour simplifier la transformation d'un champ de texte en Double et en
+     * enlevant les espace accidentels (s'il y en a)
+     * 
+     * @param texte le .getText() du champ que on veut transformer
+     * @return retourne le double qui représente le .getText()
+     */
+    protected final double trDouble(String texte) {
+        return Double.parseDouble(texte.trim());
+    }
 }
