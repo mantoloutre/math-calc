@@ -28,11 +28,13 @@ public class monApp {
         JButton btnKT = new JButton("Calcul de K triangle");
         JButton btnTV = new JButton("trouver vecteur 2 points");
         JButton btnRt = new JButton("calculer rotation point angle");
+        JButton btnPAN = new JButton("trouver point avec norme");
         pageMenu.add(btnVecteur);
         pageMenu.add(btnK);
         pageMenu.add(btnKT);
         pageMenu.add(btnTV);
         pageMenu.add(btnRt);
+        pageMenu.add(btnPAN);
 
         // ajoute des pages dans le conteneur
         conteneur.add(pageMenu, "menu");
@@ -41,6 +43,7 @@ public class monApp {
         conteneur.add(new PageCalculKTriangle(cl, conteneur), "Kt");
         conteneur.add(new PageTrouveVecteur2Pts(cl, conteneur), "vecteur2Pts");
         conteneur.add(new PageCalculRotationAngle(cl, conteneur), "calcRotation");
+        conteneur.add(new PageTrouverPointAvecNorme(cl, conteneur), "pointNorme");
 
         // navigation du menu
         btnVecteur.addActionListener(e -> cl.show(conteneur, "norme"));
@@ -48,7 +51,7 @@ public class monApp {
         btnKT.addActionListener(e -> cl.show(conteneur, "Kt"));
         btnTV.addActionListener(e -> cl.show(conteneur, "vecteur2Pts"));
         btnRt.addActionListener(e -> cl.show(conteneur, "calcRotation"));
-
+        btnPAN.addActionListener(e -> cl.show(conteneur, "pointNorme"));
         fenetre.add(conteneur);
         fenetre.setVisible(true);
     }
