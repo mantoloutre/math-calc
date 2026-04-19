@@ -1,12 +1,12 @@
 package app;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 /**
- * Interface principale de mon application.
- * Centralise les outils de calcul pour le cours de mathématiques.
- * * @author mantoloutre
+ * interface principale de l'application
+ * 
+ * @author mantoloutre
  */
 public class monApp {
 
@@ -36,10 +36,10 @@ public class monApp {
 
         // ajoute des pages dans le conteneur
         conteneur.add(pageMenu, "menu");
-        conteneur.add(new pageVecteur(cl, conteneur), "norme");
+        conteneur.add(new PageVecteur(cl, conteneur), "norme");
         conteneur.add(new PageCalculK(cl, conteneur), "k");
-        conteneur.add(new pageCalculKTriangle(cl, conteneur), "Kt");
-        conteneur.add(new pageTrouveVecteur2Pts(cl, conteneur), "vecteur2Pts");
+        conteneur.add(new PageCalculKTriangle(cl, conteneur), "Kt");
+        conteneur.add(new PageTrouveVecteur2Pts(cl, conteneur), "vecteur2Pts");
         conteneur.add(new PageCalculRotationAngle(cl, conteneur), "calcRotation");
 
         // navigation du menu

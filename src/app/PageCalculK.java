@@ -1,7 +1,7 @@
 package app;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 /**
  * page pour faire le calcul de K avec 2 rectangles ou pour trouver les mesure
@@ -9,7 +9,7 @@ import java.awt.*;
  * 
  * @author mantoloutre
  */
-public class PageCalculK extends JPanel {
+public class PageCalculK extends PageDeBase {
     private final JTextField cL1, cH1, cL2, cH2, cK;
     private final JLabel lblResultat;
 
@@ -21,7 +21,7 @@ public class PageCalculK extends JPanel {
      * @param conteneur le conteneur principal qui contient toute les pages
      */
     public PageCalculK(CardLayout cl, JPanel conteneur) {
-        this.setLayout(new GridLayout(0, 2, 5, 5));
+        super(cl, conteneur);
         // initialisation des champs d'écriture et label
         this.cL1 = ajouterChamp("Largeur Rect 1 :");
         this.cL1.setToolTipText("largeur du rectangle original");
@@ -34,29 +34,12 @@ public class PageCalculK extends JPanel {
         this.cK = ajouterChamp("Mesure K");
         this.lblResultat = new JLabel("Résultat : ---");
         JButton btnCalculer = new JButton("Calculer K");
-        JButton btnRetour = new JButton("<- Retour");
 
         this.add(btnCalculer);
         this.add(lblResultat);
-        this.add(btnRetour);
+        ajouterBoutonRetour();
         // bouton d'actions
         btnCalculer.addActionListener(e -> appliquerCalcul());
-
-        btnRetour.addActionListener(e -> cl.show(conteneur, "menu"));
-    }
-
-    /**
-     * méthode pour rendre le code moins gros.
-     * cette méthode va simplifier l'ajout de JLabel et de JTextfield
-     * 
-     * @param texte le texte que on veut mettre dans le JLabel
-     * @return retourne le JTextField
-     */
-    private JTextField ajouterChamp(String texte) {
-        this.add(new JLabel(texte));
-        JTextField champ = new JTextField();
-        this.add(champ);
-        return champ;
     }
 
     /**

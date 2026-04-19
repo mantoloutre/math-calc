@@ -1,14 +1,14 @@
 package app;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 /**
  * page pour calculer le vecteur
  * 
  * @author mantoloutre
  */
-public class pageVecteur extends JPanel {
+public class PageVecteur extends PageDeBase {
     private JTextField champX;
     private JTextField champY;
     private JLabel lblResultat;
@@ -20,19 +20,17 @@ public class pageVecteur extends JPanel {
      *                  seule page a la fois
      * @param conteneur le conteneur principal qui contient toute les pages
      */
-    public pageVecteur(CardLayout cl, JPanel conteneur) {
-        this.setLayout(new GridLayout(0, 2, 5, 5));
-
+    public PageVecteur(CardLayout cl, JPanel conteneur) {
+        super(cl, conteneur);
         this.champX = ajouterChamp("Coordonnée X :");
         this.champY = ajouterChamp("Coordonnée Y :");
         this.lblResultat = new JLabel("Résultat : ---");
 
         JButton btnCalculer = new JButton("Calculer Norme");
-        JButton btnRetour = new JButton("<- Retour");
 
         this.add(btnCalculer);
         this.add(lblResultat);
-        this.add(btnRetour);
+        ajouterBoutonRetour();
 
         // Logique de calcul
         btnCalculer.addActionListener(e -> {
@@ -43,22 +41,5 @@ public class pageVecteur extends JPanel {
                 lblResultat.setText("Erreur !");
             }
         });
-
-        // Navigation
-        btnRetour.addActionListener(e -> cl.show(conteneur, "menu"));
-    }
-
-    /**
-     * méthode pour rendre le code moins gros.
-     * cette méthode va simplifier l'ajout de JLabel et de JTextfield
-     * 
-     * @param texte le texte que on veut mettre dans le JLabel
-     * @return retourne le JTextField
-     */
-    private JTextField ajouterChamp(String texte) {
-        this.add(new JLabel(texte));
-        JTextField champ = new JTextField();
-        this.add(champ);
-        return champ;
     }
 }

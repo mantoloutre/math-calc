@@ -1,7 +1,7 @@
 package app;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 /**
  * cette classe représente l'objet de la page pour trouver le vecteur a partir
@@ -9,7 +9,7 @@ import java.awt.*;
  * 
  * @author mantoloutre
  */
-public class pageTrouveVecteur2Pts extends JPanel {
+public class PageTrouveVecteur2Pts extends PageDeBase {
     private JTextField cX1, cY1, cX2, cY2;
     private JLabel lblResultat;
 
@@ -20,9 +20,8 @@ public class pageTrouveVecteur2Pts extends JPanel {
      *                  seule page a la fois
      * @param conteneur le conteneur principal qui contient toute les pages
      */
-    public pageTrouveVecteur2Pts(CardLayout cl, JPanel conteneur) {
-        // ajouter le layout voulu //
-        this.setLayout(new GridLayout(0, 2, 5, 5));
+    public PageTrouveVecteur2Pts(CardLayout cl, JPanel conteneur) {
+        super(cl, conteneur);
         // ajouter les fields + faire la méthode pour rendre ca plus simple //
         this.cX1 = ajouterChamp("x du point 1 :");
         this.cY1 = ajouterChamp("y du point 1 :");
@@ -32,12 +31,10 @@ public class pageTrouveVecteur2Pts extends JPanel {
         this.lblResultat = new JLabel("Résultat : ---");
         // ajouter le bouton qui va servir a faire le calcul //
         JButton btnCalculer = new JButton("Calculer norme");
-        // ajouter le bouton pour revenir au menu //
-        JButton btnRetour = new JButton("<- Retour");
         // tout ajouter au conteneur //
         this.add(btnCalculer);
         this.add(lblResultat);
-        this.add(btnRetour);
+        ajouterBoutonRetour();
         // ajouter le actionListener au bouton pour calculer la norme //
         btnCalculer.addActionListener(e -> {
             // utiliser un try catch au cas ou l'utilisateur ne met pas des données valides
@@ -53,23 +50,6 @@ public class pageTrouveVecteur2Pts extends JPanel {
                 // au cas ou l'utilisateur a entré des données invalides //
                 lblResultat.setText("Erreur !");
             }
-        });
-        btnRetour.addActionListener(e -> cl.show(conteneur, "menu"));
-    }
-
-    /**
-     * méthode pour simplifier l'ajoute de JTextField et de JLabel en 1 ligne (
-     * simplifie la lecture du code ).
-     * cette méthode ajoute le label avec le texte voulu et retourne un JTextfield
-     * qui est ajouter juste après.
-     * 
-     * @param texte le texte que on veut mettre dans le JLabel
-     * @return retourne le JTextField
-     */
-    private JTextField ajouterChamp(String texte) {
-        this.add(new JLabel(texte));
-        JTextField champ = new JTextField();
-        this.add(champ);
-        return champ;
+        }); 
     }
 }

@@ -1,7 +1,7 @@
 package app;
 
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 
 /**
  * cette classe est la page pour faire le calcul de différence ( l ) avec des
@@ -9,7 +9,7 @@ import java.awt.*;
  * 
  * @author mantoloutre
  */
-public class pageCalculKTriangle extends JPanel {
+public class PageCalculKTriangle extends PageDeBase {
     private JTextField cL1, cH1, cL2, cH2;
     private JLabel lblResultat;
 
@@ -20,8 +20,8 @@ public class pageCalculKTriangle extends JPanel {
      *                  seule page a la fois
      * @param conteneur le conteneur principal qui contient toute les pages
      */
-    public pageCalculKTriangle(CardLayout cl, JPanel conteneur) {
-        this.setLayout(new GridLayout(0, 2, 5, 5));
+    public PageCalculKTriangle(CardLayout cl, JPanel conteneur) {
+        super(cl, conteneur);
         // initialisation des champs d'écriture pour les deux triangles
         this.cL1 = ajouterChamp("Largeur ( base Triangle 1 :");
         this.cH1 = ajouterChamp("Hauteur premier triangle :");
@@ -29,10 +29,9 @@ public class pageCalculKTriangle extends JPanel {
         this.cH2 = ajouterChamp("Hauteur deuxième triangle :");
         this.lblResultat = new JLabel("Résultat : ---");
         JButton btnCalculer = new JButton("Calculer K");
-        JButton btnRetour = new JButton("<- Retour");
         this.add(btnCalculer);
         this.add(lblResultat);
-        this.add(btnRetour);
+        ajouterBoutonRetour();
 
         btnCalculer.addActionListener(e -> {
             try {
@@ -46,20 +45,5 @@ public class pageCalculKTriangle extends JPanel {
                 lblResultat.setText("Erreur !");
             }
         });
-        btnRetour.addActionListener(e -> cl.show(conteneur, "menu"));
-    }
-
-    /**
-     * méthode pour rendre le code moins gros.
-     * cette méthode va simplifier l'ajout de JLabel et de JTextfield
-     * 
-     * @param texte le texte que on veut mettre dans le JLabel
-     * @return retourne le JTextField
-     */
-    private JTextField ajouterChamp(String texte) {
-        this.add(new JLabel(texte));
-        JTextField champ = new JTextField();
-        this.add(champ);
-        return champ;
     }
 }

@@ -10,7 +10,7 @@ import javax.swing.*;
  * 
  * @author mantoloutre
  */
-public class PageCalculRotationAngle extends JPanel {
+public class PageCalculRotationAngle extends PageDeBase {
     private JTextField x, y, pX, pY, rotation;
     private JLabel lblResultat;
 
@@ -22,7 +22,7 @@ public class PageCalculRotationAngle extends JPanel {
      * @param conteneur le conteneur principal qui contient toute les pages
      */
     public PageCalculRotationAngle(CardLayout cl, JPanel conteneur) {
-        this.setLayout(new GridLayout(0, 2, 5, 5));
+        super(cl, conteneur);
         this.x = ajouterChamp("le X du point :");
         this.y = ajouterChamp("le Y du point :");
         this.pX = ajouterChamp("le X du point pivot :");
@@ -30,10 +30,9 @@ public class PageCalculRotationAngle extends JPanel {
         this.rotation = ajouterChamp("l'angle de rotation :");
         this.lblResultat = new JLabel("Résultat : ---");
         JButton btnCalculer = new JButton("Calculer K");
-        JButton btnRetour = new JButton("<- Retour");
         this.add(btnCalculer);
         this.add(lblResultat);
-        this.add(btnRetour);
+        ajouterBoutonRetour();
         btnCalculer.addActionListener(e -> {
             try {
                 Point p1 = new Point(Double.parseDouble(x.getText()), Double.parseDouble(y.getText()));
@@ -44,22 +43,5 @@ public class PageCalculRotationAngle extends JPanel {
                 lblResultat.setText("Erreur !");
             }
         });
-        btnRetour.addActionListener(e -> cl.show(conteneur, "menu"));
-    }
-
-    /**
-     * méthode pour simplifier l'ajoute de JTextField et de JLabel en 1 ligne (
-     * simplifie la lecture du code ).
-     * cette méthode ajoute le label avec le texte voulu et retourne un JTextfield
-     * qui est ajouter juste après.
-     * 
-     * @param texte le texte que on veut mettre dans le JLabel
-     * @return retourne le JTextField
-     */
-    private JTextField ajouterChamp(String texte) {
-        this.add(new JLabel(texte));
-        JTextField champ = new JTextField();
-        this.add(champ);
-        return champ;
     }
 }
