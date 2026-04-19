@@ -4,9 +4,13 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * objet qui représente la page pour faire le calcul de rotation d'un point avec
- * un angle ( possiblement ajouter possibiliter d'ajouter avec un triangle plus
- * tard )
+ * <p>
+ * objet qui représente la page pour faire le calcul de rotation d'un point
+ * avec un angle
+ * <p>
+ * <p>
+ * possiblement ajouter possibiliter d'ajouter avec un triangle plus tard
+ * </p>
  * 
  * @author mantoloutre
  */

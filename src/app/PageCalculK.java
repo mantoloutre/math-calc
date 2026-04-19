@@ -4,8 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * page pour faire le calcul de K avec 2 rectangles ou pour trouver les mesure
- * manquante avec le k et 1 rectangle
+ * <h4>page pour faire le calcul de K avec 2 rectangles ou pour trouver les mesure
+ * manquante avec le k et 1 rectangle</h4>
  * 
  * @author mantoloutre
  */
