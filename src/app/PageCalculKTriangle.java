@@ -35,8 +35,8 @@ public class PageCalculKTriangle extends PageDeBase {
 
         btnCalculer.addActionListener(e -> {
             try {
-                Triangle t1 = new Triangle(Double.parseDouble(cH1.getText()), Double.parseDouble(cL1.getText()));
-                Triangle t2 = new Triangle(Double.parseDouble(cH2.getText()), Double.parseDouble(cL2.getText()));
+                Triangle t1 = new Triangle(trDouble(cH1.getText()), trDouble(cL1.getText()));
+                Triangle t2 = new Triangle(trDouble(cH2.getText()), trDouble(cL2.getText()));
                 double res = Triangle.kTriangle(t1, t2);
                 // (condition ? valeur si vraie : valeur si faux) ( mieux que des if else pour
                 // des petits calcul )

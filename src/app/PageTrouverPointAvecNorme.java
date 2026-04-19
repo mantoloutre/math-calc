@@ -33,9 +33,8 @@ public class PageTrouverPointAvecNorme extends PageDeBase {
         ajouterBoutonRetour();
         btnCalculer.addActionListener(e -> {
             try {
-                Point p1 = new Point(Double.parseDouble(cX.getText()), Double.parseDouble(cY.getText()));
-                Point pResultat = new Point(p1, Double.parseDouble(norme.getText()),
-                        Double.parseDouble(angleDegre.getText()));
+                Point p1 = new Point(trDouble(cX.getText()), trDouble(cY.getText()));
+                Point pResultat = new Point(p1, trDouble(norme.getText()), trDouble(angleDegre.getText()));
                 lblResultat.setText("X : " + pResultat.getX() + " Y : " + pResultat.getY());
             } catch (NumberFormatException ex) {
                 lblResultat.setText("Erreur !");

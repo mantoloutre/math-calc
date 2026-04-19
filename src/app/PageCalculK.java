@@ -80,7 +80,7 @@ public class PageCalculK extends PageDeBase {
             if (champ.getText().trim().isEmpty()) {
                 valeur = 0;
             } else {
-                valeur = Double.parseDouble(champ.getText().replace(',', '.'));
+                valeur = trDouble(champ.getText().replace(',', '.'));
             }
         } catch (NumberFormatException ex) {
             lblResultat.setText("Erreur : Nombres seulement !");

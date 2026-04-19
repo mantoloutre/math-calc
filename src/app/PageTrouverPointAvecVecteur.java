@@ -4,7 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * documentation a faire
+ * classe qui représente la page pour trouver un point a partir d'un point de
+ * base et d'un vecteur
  * 
  * @author mantoloutre
  */
@@ -12,6 +13,14 @@ public class PageTrouverPointAvecVecteur extends PageDeBase {
     private JTextField cX, cY, cVX, cVY;
     private JLabel lblResultat;
 
+    /**
+     * constructeur de la page qui sert a trouver un point avec un point de base et
+     * un vecteur
+     * 
+     * @param cl        le gestionnaire des pages qui permet l'affichage de une
+     *                  seule page a la fois
+     * @param conteneur le conteneur principal qui contient toute les pages
+     */
     public PageTrouverPointAvecVecteur(CardLayout cl, JPanel conteneur) {
         super(cl, conteneur);
         this.cX = ajouterChamp("X du point de base:");

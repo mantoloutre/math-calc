@@ -35,7 +35,7 @@ public class PageVecteur extends PageDeBase {
         // Logique de calcul
         btnCalculer.addActionListener(e -> {
             try {
-                Vecteur v = new Vecteur(Double.parseDouble(champX.getText()), Double.parseDouble(champY.getText()));
+                Vecteur v = new Vecteur(trDouble(champX.getText()), trDouble(champY.getText()));
                 lblResultat.setText(String.format("Norme : %.2f", v.calculerNorme()));
             } catch (NumberFormatException ex) {
                 lblResultat.setText("Erreur !");

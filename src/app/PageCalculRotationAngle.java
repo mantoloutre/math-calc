@@ -39,9 +39,9 @@ public class PageCalculRotationAngle extends PageDeBase {
         ajouterBoutonRetour();
         btnCalculer.addActionListener(e -> {
             try {
-                Point p1 = new Point(Double.parseDouble(x.getText()), Double.parseDouble(y.getText()));
-                Point res = p1.calculRotation(Double.parseDouble(rotation.getText()), Double.parseDouble(pX.getText()),
-                        Double.parseDouble(pY.getText()));
+                Point p1 = new Point(trDouble(x.getText()), trDouble(y.getText()));
+                Point res = p1.calculRotation(trDouble(rotation.getText()), trDouble(pX.getText()),
+                        trDouble(pY.getText()));
                 lblResultat.setText(String.format("nouveau : (%.2f ; %.2f)", res.getX(), res.getY()));
             } catch (NumberFormatException ex) {
                 lblResultat.setText("Erreur !");

@@ -40,8 +40,8 @@ public class PageTrouveVecteur2Pts extends PageDeBase {
             // utiliser un try catch au cas ou l'utilisateur ne met pas des données valides
             try {
                 // créer les deux objets points //
-                Point pt1 = new Point(Double.parseDouble(cX1.getText()), Double.parseDouble(cY1.getText()));
-                Point pt2 = new Point(Double.parseDouble(cX2.getText()), Double.parseDouble(cY2.getText()));
+                Point pt1 = new Point(trDouble(cX1.getText()), trDouble(cY1.getText()));
+                Point pt2 = new Point(trDouble(cX2.getText()), trDouble(cY2.getText()));
                 // on appelle le constructeur pour avoir le vecteur ( le déplacement ) //
                 Vecteur res = new Vecteur(pt1, pt2);
                 // on set le texte du lblResultat au résultat //

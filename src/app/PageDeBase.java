@@ -62,8 +62,10 @@ public abstract class PageDeBase extends JPanel {
      * 
      * @param texte le .getText() du champ que on veut transformer
      * @return retourne le double qui représente le .getText()
+     * @throws NumberFormatException lance cette erreur s'il est impossible de
+     *                               transformer le texte
      */
-    protected final double trDouble(String texte) {
+    protected final double trDouble(String texte) throws NumberFormatException {
         return Double.parseDouble(texte.trim());
     }
 }
