@@ -29,12 +29,14 @@ public class monApp {
         JButton btnTV = new JButton("trouver vecteur 2 points");
         JButton btnRt = new JButton("calculer rotation point angle");
         JButton btnPAN = new JButton("trouver point avec norme");
+        JButton btnPAV = new JButton("trouver point avec vecteur");
         pageMenu.add(btnVecteur);
         pageMenu.add(btnK);
         pageMenu.add(btnKT);
         pageMenu.add(btnTV);
         pageMenu.add(btnRt);
         pageMenu.add(btnPAN);
+        pageMenu.add(btnPAV);
 
         // ajoute des pages dans le conteneur
         conteneur.add(pageMenu, "menu");
@@ -44,6 +46,7 @@ public class monApp {
         conteneur.add(new PageTrouveVecteur2Pts(cl, conteneur), "vecteur2Pts");
         conteneur.add(new PageCalculRotationAngle(cl, conteneur), "calcRotation");
         conteneur.add(new PageTrouverPointAvecNorme(cl, conteneur), "pointNorme");
+        conteneur.add(new PageTrouverPointAvecVecteur(cl, conteneur), "PointVecteur");
 
         // navigation du menu
         btnVecteur.addActionListener(e -> cl.show(conteneur, "norme"));
@@ -52,6 +55,7 @@ public class monApp {
         btnTV.addActionListener(e -> cl.show(conteneur, "vecteur2Pts"));
         btnRt.addActionListener(e -> cl.show(conteneur, "calcRotation"));
         btnPAN.addActionListener(e -> cl.show(conteneur, "pointNorme"));
+        btnPAV.addActionListener(e -> cl.show(conteneur, "PointVecteur"));
         fenetre.add(conteneur);
         fenetre.setVisible(true);
     }
