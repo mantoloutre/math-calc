@@ -24,9 +24,13 @@ public class PageTrouveVecteur2Pts extends PageDeBase {
         super(cl, conteneur);
         // ajouter les fields + faire la méthode pour rendre ca plus simple //
         this.cX1 = ajouterChamp("x du point 1 :");
+        this.cX1.setToolTipText("x du point de départ");
         this.cY1 = ajouterChamp("y du point 1 :");
+        this.cY1.setToolTipText("y du point de départ");
         this.cX2 = ajouterChamp("x du point 2 :");
+        this.cX2.setToolTipText("x du point d'arrivé");
         this.cY2 = ajouterChamp("y du point 2 :");
+        this.cY2.setToolTipText("y du point d'arrivé");
         // ajouter le JLabel qui va servir à afficher le résultat //
         this.lblResultat = new JLabel("Résultat : ---");
         // ajouter le bouton qui va servir a faire le calcul //
