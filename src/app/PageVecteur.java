@@ -22,8 +22,8 @@ public class PageVecteur extends PageDeBase {
      */
     public PageVecteur(CardLayout cl, JPanel conteneur) {
         super(cl, conteneur);
-        this.champX = ajouterChamp("Coordonnée X :");
-        this.champY = ajouterChamp("Coordonnée Y :");
+        this.champX = ajouterChamp("Vecteur X :");
+        this.champY = ajouterChamp("Vecteur Y :");
         this.lblResultat = new JLabel("Résultat : ---");
 
         JButton btnCalculer = new JButton("Calculer Norme");
