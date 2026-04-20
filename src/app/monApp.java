@@ -30,6 +30,8 @@ public class monApp {
         JButton btnRt = new JButton("calculer rotation point angle");
         JButton btnPAN = new JButton("trouver point avec norme");
         JButton btnPAV = new JButton("trouver point avec vecteur");
+        JButton btnPS = new JButton("Calcul produit scalaire avec 2 vecteurs");
+        JButton btnPSA = new JButton("Calcul produit scalaire avec normes/angle");
         pageMenu.add(btnVecteur);
         pageMenu.add(btnK);
         pageMenu.add(btnKT);
@@ -37,6 +39,8 @@ public class monApp {
         pageMenu.add(btnRt);
         pageMenu.add(btnPAN);
         pageMenu.add(btnPAV);
+        pageMenu.add(btnPS);
+        pageMenu.add(btnPSA);
 
         // ajoute des pages dans le conteneur
         conteneur.add(pageMenu, "menu");
@@ -47,6 +51,8 @@ public class monApp {
         conteneur.add(new PageCalculRotationAngle(cl, conteneur), "calcRotation");
         conteneur.add(new PageTrouverPointAvecNorme(cl, conteneur), "pointNorme");
         conteneur.add(new PageTrouverPointAvecVecteur(cl, conteneur), "PointVecteur");
+        conteneur.add(new PageCalculProduitScalaire(cl, conteneur), "calculProdScalaire");
+        conteneur.add(new PageCalculProduitScalaireAngle(cl, conteneur), "calculProdScalAngle");
 
         // navigation du menu
         btnVecteur.addActionListener(e -> cl.show(conteneur, "norme"));
@@ -56,6 +62,8 @@ public class monApp {
         btnRt.addActionListener(e -> cl.show(conteneur, "calcRotation"));
         btnPAN.addActionListener(e -> cl.show(conteneur, "pointNorme"));
         btnPAV.addActionListener(e -> cl.show(conteneur, "PointVecteur"));
+        btnPS.addActionListener(e -> cl.show(conteneur, "calculProdScalaire"));
+        btnPSA.addActionListener(e -> cl.show(conteneur, "calculProdScalAngle"));
         fenetre.add(conteneur);
         fenetre.setVisible(true);
     }

@@ -79,7 +79,7 @@ public class Vecteur {
      * @return retourne le produit scalaire
      */
     public static double calculProduitScalaire(Vecteur v1, Vecteur v2) {
-        return (v1.getX() * v1.getY()) * (v2.getX() * v2.getY());
+        return (v1.getX() * v2.getX()) + (v1.getY() * v2.getY());
     }
 
     /**
