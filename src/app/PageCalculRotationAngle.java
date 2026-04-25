@@ -42,7 +42,7 @@ public class PageCalculRotationAngle extends PageDeBase {
                 Point p1 = new Point(trDouble(x.getText()), trDouble(y.getText()));
                 Point res = p1.calculRotation(trDouble(rotation.getText()), trDouble(pX.getText()),
                         trDouble(pY.getText()));
-                lblResultat.setText(String.format("nouveau : (%.2f ; %.2f)", res.getX(), res.getY()));
+                lblResultat.setText(String.format("nouveau : (%.6f ; %.6f)", res.getX(), res.getY()));
             } catch (NumberFormatException ex) {
                 lblResultat.setText("Erreur !");
             }

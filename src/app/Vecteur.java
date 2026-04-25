@@ -7,7 +7,8 @@ package app;
  * <p>
  * Elle permet de stocker les coordonnées et de calculer la norme.
  * </p>
- * * @author mantoloutre
+ * 
+ * @author mantoloutre
  */
 public class Vecteur {
     private final double x;
@@ -94,6 +95,29 @@ public class Vecteur {
     public static double calculProduitScalaireAngle(double norme1, double norme2, double angleDegree) {
         double angleRad = Math.toRadians(angleDegree);
         return (norme1 * norme2) * Math.cos(angleRad);
+    }
+
+    /**
+     * méthode pour calculer l'addition avec 2 vecteur
+     * 
+     * @param v1 représente le premier vecteur
+     * @param v2 représente le deuxième vecteur
+     * @return retourne un nouveau vecteur qui est le résultat de l'addition des
+     *         deux vecteurs
+     */
+    public static Vecteur additionVecteur(Vecteur v1, Vecteur v2) {
+        return new Vecteur(v1.getX() + v2.getX(), v1.getY() + v2.getY());
+    }
+
+    /**
+     * méthode pour calculer la multiplication d'un vecteur
+     * 
+     * @param nb représente le nombre par lequel on veut multiplier le vecteur
+     * @param v  le vecteur en question que l'on veut multiplier par lui même
+     * @return retourne un nouveau vecteur qui est le résultat de la multiplication
+     */
+    public static Vecteur multiVecteur(double nb, Vecteur v) {
+        return new Vecteur(v.getX() * nb, v.getY() * nb);
     }
 
     public double getX() {
