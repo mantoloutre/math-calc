@@ -11,7 +11,7 @@ import javax.swing.*;
  */
 public class PageTrouveVecteur2Pts extends PageDeBase {
     private JTextField cX1, cY1, cX2, cY2;
-    private JLabel lblResultat;
+    private JLabel lblResultat, lblNorme;
 
     /**
      * constructeur de la page qui sert a trouver le vecteur a partie de deux points
@@ -32,13 +32,16 @@ public class PageTrouveVecteur2Pts extends PageDeBase {
         this.cY2 = ajouterChamp("y du point 2 :");
         this.cY2.setToolTipText("y du point d'arrivé");
         // ajouter le JLabel qui va servir à afficher le résultat //
-        this.lblResultat = new JLabel("Résultat : ---");
+        this.lblResultat = new JLabel("Vecteur : ---");
         // ajouter le bouton qui va servir a faire le calcul //
         JButton btnCalculer = new JButton("Calculer Vecteur");
+        // label pour la norme //
+        this.lblNorme = new JLabel("Norme : ---");
         // tout ajouter au conteneur //
         this.add(btnCalculer);
         this.add(lblResultat);
         ajouterBoutonRetour();
+        this.add(lblNorme);
         // ajouter le actionListener au bouton pour calculer la norme //
         btnCalculer.addActionListener(e -> {
             // utiliser un try catch au cas ou l'utilisateur ne met pas des données valides
@@ -49,10 +52,12 @@ public class PageTrouveVecteur2Pts extends PageDeBase {
                 // on appelle le constructeur pour avoir le vecteur ( le déplacement ) //
                 Vecteur res = new Vecteur(pt1, pt2);
                 // on set le texte du lblResultat au résultat //
-                lblResultat.setText("< " + res.getX() + " ; " + res.getY() + " >");
+                lblResultat.setText("Vecteur : < " + res.getX() + " ; " + res.getY() + " >");
+                // on set le texte du lblNorme a la norme //
+                lblNorme.setText("Norme : " + res.calculerNorme());
             } catch (NumberFormatException ex) {
                 // au cas ou l'utilisateur a entré des données invalides //
-                lblResultat.setText("Erreur !");
+                lblResultat.setText("Donnée invalide!");
             }
         });
     }
