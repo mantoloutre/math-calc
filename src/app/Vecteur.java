@@ -26,7 +26,7 @@ public class Vecteur {
     }
 
     /**
-     * constructeur pour calculer la norme avec 2 point
+     * constructeur pour creer un vecteur avec deux objet points
      * 
      * @param p1 premier objet point
      * @param p2 deuxieme objet point
@@ -60,6 +60,17 @@ public class Vecteur {
      */
     public static double calculerNorme(double x, double y) {
         return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+    }
+
+    /**
+     * méthode pour calculer la norme a partir de deux point directement
+     * 
+     * @param p1 le premier point
+     * @param p2 le deuxième point
+     * @return retourne la norme calculer a partir des deux points
+     */
+    public static double calculerNorme(Point p1, Point p2) {
+        return (new Vecteur(p1, p2)).calculerNorme();
     }
 
     /**
