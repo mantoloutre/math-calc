@@ -1,4 +1,6 @@
-package app;
+package app.pages;
+
+import app.models.Vecteur;
 
 import java.awt.*;
 import javax.swing.*;

@@ -1,4 +1,4 @@
-package app;
+package app.pages;
 
 import java.awt.*;
 import javax.swing.*;

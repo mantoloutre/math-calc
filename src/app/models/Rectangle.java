@@ -1,4 +1,4 @@
-package app;
+package app.models;
 
 /**
  * cette classe représente un objet de type rectangle.

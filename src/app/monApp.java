@@ -1,5 +1,7 @@
 package app;
 
+import app.pages.*;
+
 import java.awt.*;
 import javax.swing.*;
 

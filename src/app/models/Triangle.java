@@ -1,4 +1,4 @@
-package app;
+package app.models;
 
 /**
  * classe qui représente un objet de type triangle.
@@ -60,7 +60,7 @@ public class Triangle {
     /**
      * setter pour le coter B ( ou la hauteur dans un triangle rectangle )
      * 
-     * @param hauteur la longueur de la hauteur
+     * @param coterB la longueur de la hauteur
      */
     public void setCoterB(double coterB) {
         this.coterB = coterB;
@@ -165,7 +165,6 @@ public class Triangle {
         longA = Vecteur.calculerNorme(pA, pB);
         longB = Vecteur.calculerNorme(pB, pC);
         longC = Vecteur.calculerNorme(pC, pA);
-        double[] tab = { longA, longB, longC };
-        return tab;
+        return new double[]{ longA, longB, longC };
     }
 }

@@ -1,4 +1,6 @@
-package app;
+package app.pages;
+
+import app.models.Rectangle;
 
 import java.awt.*;
 import javax.swing.*;
