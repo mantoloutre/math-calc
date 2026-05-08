@@ -17,7 +17,7 @@ import javax.swing.*;
  * A
  * additioner par 4 fois le vecteur B
  * </p>
- * 
+ *
  * @author mantoloutre
  */
 public class PageCalculVecteur extends PageDeBase {
@@ -30,7 +30,7 @@ public class PageCalculVecteur extends PageDeBase {
 
     /**
      * constructeur de page pour les calculs concernant les vecteurs
-     * 
+     *
      * @param cl        le gestionnaire des pages qui permet l'affichage de une
      *                  seule page a la fois
      * @param conteneur le conteneur principal qui contient toute les pages
@@ -62,24 +62,24 @@ public class PageCalculVecteur extends PageDeBase {
         // action pour l'addition //
         addition.addActionListener(l -> {
             if (addition.isSelected()) {
-                this.remove(lblNombreV1);
-                this.remove(nombreV1);
-                this.remove(lblNombreV2);
-                this.remove(nombreV2);
-                barreMenu.revalidate();
-                barreMenu.repaint();
+                panneauCentre.remove(lblNombreV1);
+                panneauCentre.remove(nombreV1);
+                panneauCentre.remove(lblNombreV2);
+                panneauCentre.remove(nombreV2);
+                panneauCentre.revalidate();
+                panneauCentre.repaint();
             }
         });
 
         // action pour la multiplication //
         multiplication.addActionListener(l -> {
             if (multiplication.isSelected()) {
-                this.add(lblNombreV1);
-                this.add(nombreV1);
-                this.add(lblNombreV2);
-                this.add(nombreV2);
-                barreMenu.revalidate();
-                barreMenu.repaint();
+                panneauCentre.add(lblNombreV1);
+                panneauCentre.add(nombreV1);
+                panneauCentre.add(lblNombreV2);
+                panneauCentre.add(nombreV2);
+                panneauCentre.revalidate();
+                panneauCentre.repaint();
             }
         });
         // la hiéarchie : Items -> Menu -> Barre -> Panneau //

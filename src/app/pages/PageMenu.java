@@ -3,21 +3,27 @@ package app.pages;
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * classe qui représente la page du menu
+ *
+ * @author mantoloutre
+ */
 public class PageMenu extends PageDeBase {
-
+    /**
+     * constructeur de la page qui sert a trouver un point avec un point de base et
+     * un vecteur
+     *
+     * @param cl        le gestionnaire des pages qui permet l'affichage de une
+     *                  seule page a la fois
+     * @param conteneur le conteneur principal qui contient toute les pages
+     */
     public PageMenu(CardLayout cl, JPanel conteneur) {
         super(cl, conteneur);
-
-        // 1. Ajout du titre au sommet du panneau
         JLabel titre = new JLabel("Menu Principal - Calculs Mathématiques");
         titre.setFont(new Font("Arial", Font.BOLD, 18));
         titre.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.panneauCentre.add(titre);
-
-        // Espace vide entre le titre et le premier bouton
         this.panneauCentre.add(Box.createVerticalStrut(20));
-
-        // 2. Initialisation de tes 10 boutons originaux
         JButton btnVecteur = new JButton("calcul norme");
         JButton btnK = new JButton("Calcul de K");
         JButton btnKT = new JButton("Calcul de K triangle");
@@ -28,8 +34,6 @@ public class PageMenu extends PageDeBase {
         JButton btnPS = new JButton("Calcul produit scalaire avec 2 vecteurs");
         JButton btnPSA = new JButton("Calcul produit scalaire avec normes/angle");
         JButton btnPageAV = new JButton("Calcul concernant les vecteurs");
-
-        // 3. Application du style et ajout au panneau
         JButton[] tousLesBoutons = {
                 btnVecteur, btnK, btnKT, btnTV, btnRt,
                 btnPAN, btnPAV, btnPS, btnPSA, btnPageAV
@@ -44,8 +48,6 @@ public class PageMenu extends PageDeBase {
             // Espace de 10 pixels entre chaque bouton
             this.panneauCentre.add(Box.createVerticalStrut(10));
         }
-
-        // 4. Tes actions de navigation originales
         btnVecteur.addActionListener(e -> cl.show(conteneur, "norme"));
         btnK.addActionListener(e -> cl.show(conteneur, "k"));
         btnKT.addActionListener(e -> cl.show(conteneur, "Kt"));
