@@ -12,8 +12,8 @@ import javax.swing.*;
  * @author mantoloutre
  */
 public class PageCalculKTriangle extends PageDeBase {
-    private JTextField cL1, cH1, cL2, cH2;
-    private JLabel lblResultat;
+    private final JTextField cL1, cH1, cL2, cH2;
+    private final JLabel lblResultat;
 
     /**
      * constructeur de la page de calcul de K pour les triangles

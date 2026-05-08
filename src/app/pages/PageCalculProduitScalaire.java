@@ -11,8 +11,8 @@ import javax.swing.*;
  * @author mantoloutre
  */
 public class PageCalculProduitScalaire extends PageDeBase {
-    private JTextField cVX1, cVY1, cVX2, cVY2;
-    private JLabel lblResultat;
+    private final JTextField cVX1, cVY1, cVX2, cVY2;
+    private final JLabel lblResultat;
 
     /**
      * constructeur de la page pour calculer le produit scalaire avec deux vecteur

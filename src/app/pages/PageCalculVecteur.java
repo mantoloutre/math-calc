@@ -22,11 +22,10 @@ import javax.swing.*;
  */
 public class PageCalculVecteur extends PageDeBase {
     // légende : c = champ, v = vecteur //
-    private JTextField cvX1, cvY1, cvX2, cvY2, nombreV1, nombreV2;
-    private JCheckBoxMenuItem addition = new JCheckBoxMenuItem("Addition");
-    private JCheckBoxMenuItem multiplication = new JCheckBoxMenuItem("Multiplication");
-    private JMenu listeCalcul = new JMenu("Choix de l'opération");
-    private JLabel lblResultat, lblNombreV1, lblNombreV2;
+    private final JTextField cvX1, cvY1, cvX2, cvY2, nombreV1, nombreV2;
+    private final JCheckBoxMenuItem addition = new JCheckBoxMenuItem("Addition");
+    private final JCheckBoxMenuItem multiplication = new JCheckBoxMenuItem("Multiplication");
+    private final JLabel lblResultat, lblNombreV1, lblNombreV2;
     Vecteur vResultat;
 
     /**
@@ -84,6 +83,7 @@ public class PageCalculVecteur extends PageDeBase {
             }
         });
         // la hiéarchie : Items -> Menu -> Barre -> Panneau //
+        JMenu listeCalcul = new JMenu("Choix de l'opération");
         listeCalcul.add(addition);
         listeCalcul.add(multiplication);
         barreMenu.add(listeCalcul);

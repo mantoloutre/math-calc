@@ -11,9 +11,9 @@ import javax.swing.*;
  * @author mantoloutre
  */
 public class PageVecteur extends PageDeBase {
-    private JTextField champX;
-    private JTextField champY;
-    private JLabel lblResultat;
+    private final JTextField champX;
+    private final JTextField champY;
+    private final JLabel lblResultat;
 
     /**
      * constructeur de la page pour calculer le vecteur

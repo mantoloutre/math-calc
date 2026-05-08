@@ -13,8 +13,8 @@ import javax.swing.*;
  * @author mantoloutre
  */
 public class PageTrouveVecteur2Pts extends PageDeBase {
-    private JTextField cX1, cY1, cX2, cY2;
-    private JLabel lblResultat, lblNorme;
+    private final JTextField cX1, cY1, cX2, cY2;
+    private final JLabel lblResultat, lblNorme;
 
     /**
      * constructeur de la page qui sert a trouver le vecteur a partie de deux points

@@ -13,8 +13,8 @@ import javax.swing.*;
  * @author mantoloutre
  */
 public class PageTrouverPointAvecVecteur extends PageDeBase {
-    private JTextField cX, cY, cVX, cVY;
-    private JLabel lblResultat;
+    private final JTextField cX, cY, cVX, cVY;
+    private final JLabel lblResultat;
 
     /**
      * constructeur de la page qui sert a trouver un point avec un point de base et

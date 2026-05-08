@@ -17,8 +17,8 @@ import javax.swing.*;
  * @author mantoloutre
  */
 public class PageCalculRotationAngle extends PageDeBase {
-    private JTextField x, y, pX, pY, rotation;
-    private JLabel lblResultat;
+    private final JTextField x, y, pX, pY, rotation;
+    private final JLabel lblResultat;
 
     /**
      * constructeur de la page pour calculer un point avec un angle de rotation

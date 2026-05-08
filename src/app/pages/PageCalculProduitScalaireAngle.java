@@ -12,8 +12,8 @@ import javax.swing.*;
  * @author mantoloutre
  */
 public class PageCalculProduitScalaireAngle extends PageDeBase {
-    private JTextField cN1, cN2, cAngle;
-    private JLabel lblResultat;
+    private final JTextField cN1, cN2, cAngle;
+    private final JLabel lblResultat;
 
     /**
      * constructeur de la page pour calculer le produit scalaire avec 2 normes et

@@ -11,8 +11,8 @@ import javax.swing.*;
  * @author mantoloutre
  */
 public class PageTrouverPointAvecNorme extends PageDeBase {
-    private JTextField cX, cY, norme, angleDegre;
-    private JLabel lblResultat;
+    private final JTextField cX, cY, norme, angleDegre;
+    private final JLabel lblResultat;
 
     /**
      * constructeur de la page pour trouver un point avec un point de départ et la
