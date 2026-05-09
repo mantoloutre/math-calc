@@ -15,9 +15,6 @@ import java.awt.event.ActionListener;
  * @author mantoloutre
  */
 public class PageCalculMatrice extends PageDeBase {
-    //TODO faire que en gros c comme avec regex: tu split avec on va dire les ;
-    //TODO faire que genre au debut, possibiliter de mettre un chiffre
-    //TODO qui veut dire genre x nombre de fois cette matrice (optionnel)
     private final JTextField cLM1, cLM2;
     private final JLabel lblResultat = new JLabel("Résultat : ---");
     private final JButton addition;
