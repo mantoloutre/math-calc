@@ -1,5 +1,7 @@
 package app.pages;
 
+import app.models.Matrice;
+
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -40,8 +42,49 @@ public abstract class PageDeBase extends JPanel {
     }
 
     /**
+     * méthode utilitaire pour transformer le contenu d'un champ de texte
+     * en matrice
+     *
+     * @param champ le champ de texte a transformer
+     * @return retourne la matrice
+     */
+    public static Matrice textToMatrice(JTextField champ) throws ArrayIndexOutOfBoundsException{
+        Matrice m = null;
+        try {
+            String input = champ.getText().replace(" ", ""); // On vire les espaces
+            double scalaire = 1.0;
+            String matriceTexte = input;
+            // Si y'a un 'x', on sépare le chiffre de la matrice
+            if (input.contains("x")) {
+                String[] splitX = input.split("x");
+                scalaire = Double.parseDouble(splitX[0]);
+                matriceTexte = splitX[1];
+            }
+            //split les 4 chiffres par le ";"
+            String[] num = matriceTexte.split(";");
+            //verif pas trop d'élément
+            if (num.length != 4) {
+                throw new ArrayIndexOutOfBoundsException("trop d'élément écrit");
+            }
+            // création matrice
+            m = new Matrice(
+                    trDouble(num[0]), trDouble(num[1]),
+                    trDouble(num[2]), trDouble(num[3])
+            );
+            // appliquer le scalaire
+            if (scalaire != 1.0) {
+                m = Matrice.calcMultiplication(scalaire, m);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null,
+                    "Format invalide ! : scalaire x a;b;c;d");
+        }
+        return m;
+    }
+
+    /**
      * intercepte l'ajout de composants pour les rediriger vers le panneau central,
-     * sauf si une position spécifique (NORTH/SOUTH) est demandée.
+     * sauf si une position spécifique (NORTH/SOUTH/EAST/WEST) est demandée.
      *
      * @param comp        le composant à ajouter
      * @param constraints la position ou contrainte de placement
@@ -49,7 +92,9 @@ public abstract class PageDeBase extends JPanel {
     @Override
     public void add(Component comp, Object constraints) {
         if (comp == panneauCentre || constraints == BorderLayout.SOUTH
-                || constraints == BorderLayout.NORTH) {
+                || constraints == BorderLayout.NORTH ||
+                constraints == BorderLayout.EAST || constraints ==
+                BorderLayout.WEST) {
             super.add(comp, constraints);
         } else {
             panneauCentre.add(comp);
@@ -57,7 +102,7 @@ public abstract class PageDeBase extends JPanel {
     }
 
     /**
-     * ajoute un composant directement dans le panneau central par défaut.
+     * Ajoute un composant directement dans le panneau central par défaut.
      *
      * @param comp le composant à ajouter
      * @return le composant ajouté
@@ -111,7 +156,7 @@ public abstract class PageDeBase extends JPanel {
     protected final void ajouterBoutonRetour() {
         JButton btnRetour = new JButton("Retour au menu");
         btnRetour.addActionListener(e -> cl.show(conteneur, "menu"));
-        JPanel panneauBas = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        JPanel panneauBas = new JPanel(new FlowLayout(FlowLayout.CENTER));
         panneauBas.add(btnRetour);
 
         this.add(panneauBas, BorderLayout.SOUTH);
@@ -147,7 +192,7 @@ public abstract class PageDeBase extends JPanel {
      * @throws NumberFormatException lance cette erreur s'il est impossible de
      *                               transformer le texte
      */
-    protected final double trDouble(String texte) throws NumberFormatException {
+    protected static double trDouble(String texte) throws NumberFormatException {
         return Double.parseDouble(texte.trim());
     }
 }

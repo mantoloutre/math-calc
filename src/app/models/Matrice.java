@@ -1,5 +1,6 @@
 package app.models;
 
+import javax.swing.*;
 /**
  * classe pour représenter une matrice
  * <p>matrice 2x2</p>

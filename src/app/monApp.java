@@ -32,6 +32,7 @@ public class monApp {
         conteneur.add(new PageCalculProduitScalaire(cl, conteneur), "calculProdScalaire");
         conteneur.add(new PageCalculProduitScalaireAngle(cl, conteneur), "calculProdScalAngle");
         conteneur.add(new PageCalculVecteur(cl, conteneur), "calcVecteur");
+        conteneur.add(new PageCalculMatrice(cl, conteneur), "calcMatrice");
         fenetre.add(conteneur);
         fenetre.setVisible(true);
     }

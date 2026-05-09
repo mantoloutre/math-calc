@@ -19,7 +19,7 @@ public class PageMenu extends PageDeBase {
      */
     public PageMenu(CardLayout cl, JPanel conteneur) {
         super(cl, conteneur);
-        JLabel titre = new JLabel("Menu Principal - Calculs Mathématiques");
+        JLabel titre = new JLabel("Menu Principal");
         titre.setFont(new Font("Arial", Font.BOLD, 18));
         titre.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.panneauCentre.add(titre);
@@ -34,9 +34,10 @@ public class PageMenu extends PageDeBase {
         JButton btnPS = new JButton("Calcul produit scalaire avec 2 vecteurs");
         JButton btnPSA = new JButton("Calcul produit scalaire avec normes/angle");
         JButton btnPageAV = new JButton("Calcul concernant les vecteurs");
+        JButton btnPCM = new JButton("Calcul concernant les matrices");
         JButton[] tousLesBoutons = {
                 btnVecteur, btnK, btnKT, btnTV, btnRt,
-                btnPAN, btnPAV, btnPS, btnPSA, btnPageAV
+                btnPAN, btnPAV, btnPS, btnPSA, btnPageAV, btnPCM
         };
 
         for (JButton b : tousLesBoutons) {
@@ -44,9 +45,8 @@ public class PageMenu extends PageDeBase {
             b.setMaximumSize(new Dimension(400, 40));
             b.setAlignmentX(Component.CENTER_ALIGNMENT);
             this.panneauCentre.add(b);
-
-            // Espace de 10 pixels entre chaque bouton
-            this.panneauCentre.add(Box.createVerticalStrut(10));
+            //espace entre les boutons
+            this.panneauCentre.add(Box.createVerticalStrut(5));
         }
         btnVecteur.addActionListener(e -> cl.show(conteneur, "norme"));
         btnK.addActionListener(e -> cl.show(conteneur, "k"));
@@ -58,5 +58,6 @@ public class PageMenu extends PageDeBase {
         btnPS.addActionListener(e -> cl.show(conteneur, "calculProdScalaire"));
         btnPSA.addActionListener(e -> cl.show(conteneur, "calculProdScalAngle"));
         btnPageAV.addActionListener(e -> cl.show(conteneur, "calcVecteur"));
+        btnPCM.addActionListener(e -> cl.show(conteneur, "calcMatrice"));
     }
 }
