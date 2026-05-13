@@ -60,7 +60,16 @@ public class PageCalculMatrice extends PageDeBase {
         ajouterBoutonRetour();
     }
 
+    /**
+     * classe pour gérer l'action des boutons
+     */
     class OptionListener implements ActionListener {
+        /**
+         * on redéfinit cette méthode pour pouvoir choisir ce que le bouton
+         * fait
+         *
+         * @param e l'action
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
