@@ -14,9 +14,9 @@ Détails techniques :
 
     Tout est codé "from scratch" dans le dossier models (Matrice, Point, Rectangle, Triangle, Vecteur). Je n'ai pas utilisé de librairies externes.
 
-    L'interface utilise Java Swing. J'ai ajouté des tooltips sur les JTextField pour aider à comprendre quoi entrer.
+    L'interface utilise Java Swing. J'ai ajouté des tooltips sur certains JTextField pour aider à comprendre quoi entrer.
 
-    Le code est documenté avec Javadoc pour que ce soit facile à suivre.*Les Pull Requests sont acceptées si vous voulez améliorer l'outil !*
+    Le code est documenté avec Javadoc pour que ce soit facile à suivre.
 
 Auteur : mantoloutre
 
