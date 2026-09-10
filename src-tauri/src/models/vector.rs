@@ -17,4 +17,20 @@ impl Vector {
     }
 }
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_magniture() {
+        let v = Vector::new(10.0, 20.0);
+        //floating point math isn't precise due to how decimal
+        // are stored in binary
+        //instead of using assert_eq! ( checking exact equality )
+        // we check if the difference is smaller than a tiny error margin, in
+        // this case, 0.0001, to account for rounding
+        //the .abs is just to ensure its positive and not negative.
+        assert!((v.magnitude() - 22.3606).abs() < 0.0001);
+    }
+}
 
