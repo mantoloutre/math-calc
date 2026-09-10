@@ -22,7 +22,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_magniture() {
+    fn test_magnitude() {
         let v = Vector::new(10.0, 20.0);
         //floating point math isn't precise due to how decimal
         // are stored in binary
