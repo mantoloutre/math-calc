@@ -1,5 +1,5 @@
-import {invoke} from 'api.js';
-/*
+import { invoke } from '../api.js';
+
 const form = document.querySelector('#vector-form');
 const xInput = document.querySelector('#x-val');
 const yInput = document.querySelector('#y-val');
@@ -19,4 +19,3 @@ window.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('submit', handleCalculate);
     }
 });
- */
