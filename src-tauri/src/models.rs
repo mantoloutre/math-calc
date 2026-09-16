@@ -1,2 +1,2 @@
 pub mod vector;
-mod point;
+pub mod point;

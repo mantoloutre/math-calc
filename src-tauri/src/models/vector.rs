@@ -1,4 +1,4 @@
-//the "private variable" of an object in java
+use super::point::Point;
 ///Object Vector
 ///## param
 ///<p>x and y which represent the distance from 1 point to another</p>
@@ -10,6 +10,12 @@ pub struct Vector {
 impl Vector {
     pub fn new(x: f64, y: f64) -> Self {
         Self { x, y }
+    }
+    pub fn from_points(p1: &Point, p2: &Point) -> Self{
+        Self {
+            x: p2.x - p1.x,
+            y: p2.y - p1.y
+        }
     }
     ///return the magnitude of the desired vector
     pub fn magnitude(&self) -> f64 {
