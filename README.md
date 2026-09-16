@@ -19,5 +19,3 @@ Détails techniques :
     Le code est documenté avec Javadoc pour que ce soit facile à suivre.
 
 Auteur : mantoloutre
-
-*Les Pull Requests sont bienvenues pour étendre les capacités mathématiques de l'outil !*
